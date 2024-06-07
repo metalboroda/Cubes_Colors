@@ -18,17 +18,6 @@ namespace __Game.Resources.Scripts.EventBus
     }
     #endregion
 
-    #region Game
-    public struct StuporEvent : IEvent { }
-    #endregion
-
-    #region Train
-    public struct TrainMovementEvent : IEvent
-    {
-      public bool IsMoving;
-    }
-    #endregion
-
     #region Variants&Answers
     public struct VariantsAssignedEvent : IEvent { }
     public struct CorrectAnswerEvent : IEvent { }
@@ -38,6 +27,7 @@ namespace __Game.Resources.Scripts.EventBus
     #region Game
     public struct WinEvent : IEvent { }
     public struct LoseEvent : IEvent { }
+    public struct StuporEvent : IEvent { }
     #endregion
 
     #region ScoreManager
