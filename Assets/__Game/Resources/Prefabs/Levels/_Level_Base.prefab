@@ -248,7 +248,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3936b7bd3b3cc904b88e2223262bad0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _questAudio: {fileID: 8300000, guid: 2cc03755847d8ef45aca4a99dc0781fd, type: 3}
+  _questAudio: {fileID: 0}
   _winAnnouncerClips:
   - {fileID: 8300000, guid: 415019c34f4b59341994b0222e61ff03, type: 3}
   - {fileID: 8300000, guid: fc576c5bf8ff8ff48be18de5b3135c53, type: 3}
@@ -504,7 +504,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5930573166476560002, guid: c273fe78bbb1dec4a8cdc8df7698b97b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.875
+      value: -1.85
       objectReference: {fileID: 0}
     - target: {fileID: 5930573166476560002, guid: c273fe78bbb1dec4a8cdc8df7698b97b, type: 3}
       propertyPath: m_LocalPosition.y
@@ -512,7 +512,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5930573166476560002, guid: c273fe78bbb1dec4a8cdc8df7698b97b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.25
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 5930573166476560002, guid: c273fe78bbb1dec4a8cdc8df7698b97b, type: 3}
       propertyPath: m_LocalRotation.w
@@ -542,6 +542,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5930573166476560003, guid: c273fe78bbb1dec4a8cdc8df7698b97b, type: 3}
+      propertyPath: _cubePrefabs.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5930573166476560003, guid: c273fe78bbb1dec4a8cdc8df7698b97b, type: 3}
+      propertyPath: _cubePrefabs.Array.data[3]
+      value: 
+      objectReference: {fileID: 1455871693924891648, guid: 5db2630ca73136444951e0c061807822, type: 3}
+    - target: {fileID: 5930573166476560003, guid: c273fe78bbb1dec4a8cdc8df7698b97b, type: 3}
+      propertyPath: _cubePrefabs.Array.data[4]
+      value: 
+      objectReference: {fileID: 1455871693924891648, guid: ccf4440aec49ac74bb54cb7ac3ea0813, type: 3}
+    - target: {fileID: 5930573166476560003, guid: c273fe78bbb1dec4a8cdc8df7698b97b, type: 3}
+      propertyPath: _cubePrefabs.Array.data[5]
+      value: 
+      objectReference: {fileID: 1455871693924891648, guid: f5e351a0dcb26a24e8ae3d2df53d6193, type: 3}
     - target: {fileID: 5930573166476560005, guid: c273fe78bbb1dec4a8cdc8df7698b97b, type: 3}
       propertyPath: m_Name
       value: CubeSpawner

@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _spawnRadius: 0.35
-  _minPreviousSpawn: 0.035
+  _minPreviousSpawn: 0.05
   _cubePrefabs:
   - {fileID: 1455871693924891648, guid: 2e2dac749c57f574db64347982fd58ed, type: 3}
   - {fileID: 1455871693924891648, guid: afb64c5865b0e024a865b5bcf7e56644, type: 3}
