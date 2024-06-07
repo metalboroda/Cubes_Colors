@@ -10,6 +10,8 @@ namespace Assets.__Game.Resources.Scripts._GameStuff
   {
     [field: SerializeField] public CubeColorEnums CubeColor { get; private set; }
 
+    private BoxCollider _boxCollider;
+
     private CubeStack _cubeStack;
 
     private EventBinding<EventStructs.ComponentEvent<CubeStack>> _cubeStackComponentEvent;
@@ -20,9 +22,15 @@ namespace Assets.__Game.Resources.Scripts._GameStuff
     private Vector3 _offset;
     private bool _isPlaced = false;
 
+    private void Awake()
+    {
+      _boxCollider = GetComponent<BoxCollider>();
+    }
+
     private void Start()
     {
       _initPosition = transform.position;
+      _initRotation = transform.rotation;
     }
 
     private void OnEnable()
@@ -33,6 +41,24 @@ namespace Assets.__Game.Resources.Scripts._GameStuff
     private void OnDisable()
     {
       _cubeStackComponentEvent.Remove(ReceiveCubeStack);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+      if (_isDragging == false) return;
+
+      if (other.TryGetComponent(out CubeSlot cubeSlot))
+      {
+        if (cubeSlot.CanReceive == true)
+        {
+          cubeSlot.Place(this);
+
+          _boxCollider.enabled = false;
+
+          _isDragging = false;
+          _isPlaced = true;
+        }
+      }
     }
 
     private void ReceiveCubeStack(EventStructs.ComponentEvent<CubeStack> cubeStackComponentEvent)
@@ -70,6 +96,7 @@ namespace Assets.__Game.Resources.Scripts._GameStuff
         transform.position = new Vector3(newPosition.x, newPosition.y, transform.position.z);
 
         transform.DOLocalMoveZ(newPosition.z, 0.1f);
+        transform.DOLocalRotateQuaternion(Quaternion.Euler(0, 0, 0), 0.1f);
       }
     }
 
@@ -79,7 +106,10 @@ namespace Assets.__Game.Resources.Scripts._GameStuff
 
       if (_isPlaced == false)
       {
-        transform.DOMove(_initPosition, 0.2f);
+        transform.DOMove(_initPosition, 0.2f).OnComplete(() =>
+        {
+          _boxCollider.enabled = true;
+        });
         transform.DORotateQuaternion(_initRotation, 0.2f);
       }
     }
