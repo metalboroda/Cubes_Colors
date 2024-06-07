@@ -7,6 +7,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3227331946744297884, guid: 9ea7e39e4e5aeff488e6f5716056a380, type: 3}
+      propertyPath: <CubeColor>k__BackingField
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4964011212203891397, guid: 9ea7e39e4e5aeff488e6f5716056a380, type: 3}
       propertyPath: m_Name
       value: Cube_Rounded_Blue

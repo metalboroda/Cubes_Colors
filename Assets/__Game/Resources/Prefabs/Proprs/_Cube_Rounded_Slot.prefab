@@ -7,9 +7,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4964011211653869387, guid: 9ea7e39e4e5aeff488e6f5716056a380, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.499
+      objectReference: {fileID: 0}
+    - target: {fileID: 4964011211653869387, guid: 9ea7e39e4e5aeff488e6f5716056a380, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.499
+      objectReference: {fileID: 0}
+    - target: {fileID: 4964011211653869387, guid: 9ea7e39e4e5aeff488e6f5716056a380, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.499
+      objectReference: {fileID: 0}
     - target: {fileID: 4964011212203891397, guid: 9ea7e39e4e5aeff488e6f5716056a380, type: 3}
       propertyPath: m_Name
-      value: Cube_Rounded_Slot
+      value: _Cube_Rounded_Slot
       objectReference: {fileID: 0}
     - target: {fileID: 4964011212203891398, guid: 9ea7e39e4e5aeff488e6f5716056a380, type: 3}
       propertyPath: m_RootOrder
