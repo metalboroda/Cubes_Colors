@@ -9,6 +9,11 @@ namespace Assets.__Game.Resources.Scripts._GameStuff
     [SerializeField] private CubeSlot _cubeSlotPrefab;
     [Header("")]
     [SerializeField] private CubeSlotItem[] _cubeSlotItems;
+    [Header("Tutorial")]
+    [SerializeField] private bool _tutorial;
+    [Space]
+    [SerializeField] private Material[] _tutorialMaterials;
+
     private int _currentActiveSlotIndex = 0;
 
     private void Start()
@@ -27,6 +32,12 @@ namespace Assets.__Game.Resources.Scripts._GameStuff
       for (int i = 0; i < _cubeSlotItems.Length; i++)
       {
         CubeSlot newSlot = Instantiate(_cubeSlotPrefab, slotPosition, Quaternion.identity, transform);
+
+        if (_tutorial && i < _tutorialMaterials.Length)
+        {
+          newSlot.GetComponentInChildren<Renderer>().material = _tutorialMaterials[i];
+        }
+
         newSlot.Init(_cubeSlotItems[i].CubeColor, this);
 
         if (i == 0)

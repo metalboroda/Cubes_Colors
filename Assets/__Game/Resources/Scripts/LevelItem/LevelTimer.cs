@@ -58,7 +58,8 @@ namespace Assets.__Game.Resources.Scripts.LevelItem
 
     private void TimerFinished()
     {
-      _gameBootstrapper.StateMachine.ChangeState(new GameLoseState(_gameBootstrapper));
+      if (_gameBootstrapper != null)
+        _gameBootstrapper.StateMachine.ChangeState(new GameLoseState(_gameBootstrapper));
     }
 
     private void StopTimer(EventStructs.StateChanged stateChanged)

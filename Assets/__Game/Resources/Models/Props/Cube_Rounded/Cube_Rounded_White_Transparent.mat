@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Cube_Rounded_Transparent
+  m_Name: Cube_Rounded_White_Transparent
   m_Shader: {fileID: 4800000, guid: 481153b840b6e408da95e6afbe176397, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords:

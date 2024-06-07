@@ -9,15 +9,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4964011211653869387, guid: 9ea7e39e4e5aeff488e6f5716056a380, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.299
+      value: 0.0349
       objectReference: {fileID: 0}
     - target: {fileID: 4964011211653869387, guid: 9ea7e39e4e5aeff488e6f5716056a380, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.299
+      value: 0.0349
       objectReference: {fileID: 0}
     - target: {fileID: 4964011211653869387, guid: 9ea7e39e4e5aeff488e6f5716056a380, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.299
+      value: 0.0349
       objectReference: {fileID: 0}
     - target: {fileID: 4964011212203891397, guid: 9ea7e39e4e5aeff488e6f5716056a380, type: 3}
       propertyPath: m_Name
@@ -68,6 +68,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5990385931708418387, guid: 9ea7e39e4e5aeff488e6f5716056a380, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5990385931708418387, guid: 9ea7e39e4e5aeff488e6f5716056a380, type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5990385931708418387, guid: 9ea7e39e4e5aeff488e6f5716056a380, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: e1b4ae09785b7f24994a398a13275c52, type: 2}
@@ -93,4 +101,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CanReceive: 0
   _cubeColor: 0
-  _meshRenderer: {fileID: 0}
