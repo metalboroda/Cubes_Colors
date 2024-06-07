@@ -49,7 +49,7 @@ namespace Assets.__Game.Resources.Scripts._GameStuff
 
       if (other.TryGetComponent(out CubeSlot cubeSlot))
       {
-        if (cubeSlot.CanReceive == true)
+        if (cubeSlot.CanReceive == true && cubeSlot.IsBlocked == false)
         {
           cubeSlot.Place(this);
 

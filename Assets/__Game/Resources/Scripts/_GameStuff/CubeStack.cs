@@ -1,4 +1,5 @@
 using __Game.Resources.Scripts.EventBus;
+using System.Collections;
 using UnityEngine;
 
 namespace Assets.__Game.Resources.Scripts._GameStuff
@@ -10,11 +11,11 @@ namespace Assets.__Game.Resources.Scripts._GameStuff
     [SerializeField] private CubeSlotItem[] _cubeSlotItems;
     private int _currentActiveSlotIndex = 0;
 
-    private void Awake()
+    private void Start()
     {
-      EventBus<EventStructs.ComponentEvent<CubeStack>>.Raise(new EventStructs.ComponentEvent<CubeStack> { Data = this });
-
       SpawnCubeSlots();
+
+      StartCoroutine(DoSendCubeStack());
     }
 
     private void SpawnCubeSlots()
@@ -62,10 +63,8 @@ namespace Assets.__Game.Resources.Scripts._GameStuff
       foreach (Transform child in transform)
       {
         CubeSlot slot = child.GetComponent<CubeSlot>();
-        if (slot.CanReceive)
-        {
-          return;
-        }
+
+        if (slot.CanReceive) return;
       }
 
       OnAllSlotsOccupied();
@@ -73,7 +72,13 @@ namespace Assets.__Game.Resources.Scripts._GameStuff
 
     private void OnAllSlotsOccupied()
     {
-      Debug.Log("All slots are occupied. Perform some action here.");
+    }
+
+    private IEnumerator DoSendCubeStack()
+    {
+      yield return new WaitForEndOfFrame();
+
+      EventBus<EventStructs.ComponentEvent<CubeStack>>.Raise(new EventStructs.ComponentEvent<CubeStack> { Data = this });
     }
   }
 }

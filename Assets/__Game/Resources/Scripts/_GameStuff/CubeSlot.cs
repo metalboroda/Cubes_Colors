@@ -10,6 +10,8 @@ namespace Assets.__Game.Resources.Scripts._GameStuff
     [Header("")]
     [SerializeField] private CubeColorEnums _cubeColor;
 
+    public bool IsBlocked { get; private set; }
+
     private MeshRenderer _meshRenderer;
 
     private CubeStack _cubeStack;
@@ -32,6 +34,8 @@ namespace Assets.__Game.Resources.Scripts._GameStuff
 
     public void Place(Cube cube)
     {
+      if (IsBlocked == true) return;
+
       cube.transform.DOMove(transform.position, 0.2f);
       cube.transform.DORotateQuaternion(transform.rotation, 0.2f);
 
@@ -42,6 +46,10 @@ namespace Assets.__Game.Resources.Scripts._GameStuff
         SwitchVisual();
 
         _cubeStack.ActivateNextSlot();
+      }
+      else
+      {
+        IsBlocked = true;
       }
     }
   }
