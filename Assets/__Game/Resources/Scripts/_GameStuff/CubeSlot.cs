@@ -1,11 +1,18 @@
+using __Game.Resources.Scripts.EventBus;
 using Assets.__Game.Resources.Scripts.Enums;
+using Assets.__Game.Resources.Scripts.Game.States;
+using Assets.__Game.Scripts.Infrastructure;
 using DG.Tweening;
+using System;
 using UnityEngine;
 
 namespace Assets.__Game.Resources.Scripts._GameStuff
 {
   public class CubeSlot : MonoBehaviour
   {
+    public event Action CorrectItem;
+    public event Action IncorrectItem;
+
     public bool CanReceive = false;
     [Header("")]
     [SerializeField] private CubeColorEnums _cubeColor;
@@ -14,10 +21,13 @@ namespace Assets.__Game.Resources.Scripts._GameStuff
 
     private MeshRenderer _meshRenderer;
 
+    private GameBootstrapper _gameBootstrapper;
     private CubeStack _cubeStack;
 
     private void Awake()
     {
+      _gameBootstrapper = GameBootstrapper.Instance;
+
       _meshRenderer = GetComponentInChildren<MeshRenderer>();
     }
 
@@ -46,10 +56,18 @@ namespace Assets.__Game.Resources.Scripts._GameStuff
         SwitchVisual();
 
         _cubeStack.ActivateNextSlot();
+
+        CorrectItem?.Invoke();
       }
       else
       {
         IsBlocked = true;
+
+        EventBus<EventStructs.LoseEvent>.Raise(new EventStructs.LoseEvent());
+
+        _gameBootstrapper.StateMachine.ChangeState(new GameLoseState(_gameBootstrapper));
+
+        IncorrectItem?.Invoke();
       }
     }
   }

@@ -219,14 +219,17 @@ namespace Assets.__Game.Resources.Scripts.Management
       {
         case GameQuestState:
           _globalCanvas.SetActive(true);
+
           SwitchCanvas(_questCanvas);
           break;
         case GameplayState:
           _globalCanvas.SetActive(false);
+
           SwitchCanvas(_gameCanvas);
           break;
         case GameWinState:
           _globalCanvas.SetActive(true);
+
           SwitchCanvas(_winCanvas);
           TryToEnableReward();
 
@@ -238,6 +241,7 @@ namespace Assets.__Game.Resources.Scripts.Management
           break;
         case GameLoseState:
           _globalCanvas.SetActive(true);
+
           SwitchCanvas(_loseCanvas);
 
           if (_lastLevel == true)
@@ -245,7 +249,9 @@ namespace Assets.__Game.Resources.Scripts.Management
           break;
         case GamePauseState:
           _globalCanvas.SetActive(true);
+
           SwitchCanvas(_pauseCanvas);
+
           break;
       }
     }

@@ -1,4 +1,6 @@
 using __Game.Resources.Scripts.EventBus;
+using Assets.__Game.Resources.Scripts.Game.States;
+using Assets.__Game.Scripts.Infrastructure;
 using System.Collections;
 using UnityEngine;
 
@@ -15,6 +17,13 @@ namespace Assets.__Game.Resources.Scripts._GameStuff
     [SerializeField] private Material[] _tutorialMaterials;
 
     private int _currentActiveSlotIndex = 0;
+
+    private GameBootstrapper _gameBootstrapper;
+
+    private void Awake()
+    {
+      _gameBootstrapper = GameBootstrapper.Instance;
+    }
 
     private void Start()
     {
@@ -83,6 +92,9 @@ namespace Assets.__Game.Resources.Scripts._GameStuff
 
     private void OnAllSlotsOccupied()
     {
+      EventBus<EventStructs.WinEvent>.Raise(new EventStructs.WinEvent());
+
+      _gameBootstrapper.StateMachine.ChangeState(new GameWinState(_gameBootstrapper));
     }
 
     private IEnumerator DoSendCubeStack()
