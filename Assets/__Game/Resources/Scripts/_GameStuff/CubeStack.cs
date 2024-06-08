@@ -15,14 +15,29 @@ namespace Assets.__Game.Resources.Scripts._GameStuff
     [SerializeField] private bool _tutorial;
     [Space]
     [SerializeField] private Material[] _tutorialMaterials;
+    [Header("Stupor")]
+    [SerializeField] private float _stuporTimeoutSeconds = 10;
 
     private int _currentActiveSlotIndex = 0;
+    private Coroutine _stuporTimeoutRoutine;
 
     private GameBootstrapper _gameBootstrapper;
+
+    private EventBinding<EventStructs.StateChanged> _stateChangedEvent;
 
     private void Awake()
     {
       _gameBootstrapper = GameBootstrapper.Instance;
+    }
+
+    private void OnEnable()
+    {
+      _stateChangedEvent = new EventBinding<EventStructs.StateChanged>(StuporTimerDependsOnState);
+    }
+
+    private void OnDisable()
+    {
+      _stateChangedEvent.Remove(StuporTimerDependsOnState);
     }
 
     private void Start()
@@ -30,6 +45,7 @@ namespace Assets.__Game.Resources.Scripts._GameStuff
       SpawnCubeSlots();
 
       StartCoroutine(DoSendCubeStack());
+      ResetAndStartStuporTimer();
     }
 
     private void SpawnCubeSlots()
@@ -71,6 +87,8 @@ namespace Assets.__Game.Resources.Scripts._GameStuff
         nextSlot.CanReceive = true;
 
         nextSlot.SwitchVisual();
+
+        ResetAndStartStuporTimer();
       }
       else
       {
@@ -102,6 +120,34 @@ namespace Assets.__Game.Resources.Scripts._GameStuff
       yield return new WaitForEndOfFrame();
 
       EventBus<EventStructs.ComponentEvent<CubeStack>>.Raise(new EventStructs.ComponentEvent<CubeStack> { Data = this });
+    }
+
+    private void StuporTimerDependsOnState(EventStructs.StateChanged stateChanged)
+    {
+      if (stateChanged.State is GameplayState)
+        ResetAndStartStuporTimer();
+      else
+      {
+        if (_stuporTimeoutRoutine != null)
+          StopCoroutine(_stuporTimeoutRoutine);
+      }
+    }
+
+    private void ResetAndStartStuporTimer()
+    {
+      if (_stuporTimeoutRoutine != null)
+        StopCoroutine(_stuporTimeoutRoutine);
+
+      _stuporTimeoutRoutine = StartCoroutine(DoStuporTimerCoroutine());
+    }
+
+    private IEnumerator DoStuporTimerCoroutine()
+    {
+      yield return new WaitForSeconds(_stuporTimeoutSeconds);
+
+      EventBus<EventStructs.StuporEvent>.Raise(new EventStructs.StuporEvent());
+
+      ResetAndStartStuporTimer();
     }
   }
 }

@@ -10,10 +10,12 @@ namespace Assets.__Game.Resources.Scripts.LevelItem
   {
     [Header("Announcer")]
     [SerializeField] private AudioClip[] _questClips;
+    [Space]
+    [SerializeField] private float _delayBetweenClips = 0.25f;
+    [Space]
     [SerializeField] private AudioClip[] _winAnnouncerClips;
     [SerializeField] private AudioClip[] _loseAnnouncerClips;
     [SerializeField] private AudioClip[] _stuporAnnouncerClips;
-    [SerializeField] private float _delayBetweenClips = 0.25f;
 
     private AudioSource _audioSource;
     private AudioTool _audioTool;
