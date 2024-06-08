@@ -47,7 +47,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &8061683929232798917
 Transform:
   m_ObjectHideFlags: 0
@@ -248,7 +248,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3936b7bd3b3cc904b88e2223262bad0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _questAudio: {fileID: 0}
+  _questClips:
+  - {fileID: 8300000, guid: 59299c651561ce044969836dcc1afb90, type: 3}
   _winAnnouncerClips:
   - {fileID: 8300000, guid: 415019c34f4b59341994b0222e61ff03, type: 3}
   - {fileID: 8300000, guid: fc576c5bf8ff8ff48be18de5b3135c53, type: 3}
@@ -264,6 +265,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 9036e48a1a7974f47a07dc139e1d4fc8, type: 3}
   - {fileID: 8300000, guid: ad2132597fcac874d8a3a028beaa982c, type: 3}
   - {fileID: 8300000, guid: 5f5f1ac42a37e6c428293c1111d875d4, type: 3}
+  _delayBetweenClips: 0
 --- !u!1 &6855159342138216446
 GameObject:
   m_ObjectHideFlags: 0

@@ -40,7 +40,7 @@ namespace Assets.__Game.Scripts.Infrastructure
 
     private void Start()
     {
-      SceneLoader.LoadSceneAsyncWithDelay(Hashes.GameScene, 2, this, () =>
+      SceneLoader.LoadSceneAsyncWithDelay(Hashes.GameScene, 2f, this, () =>
       {
         StateMachine.Init(new GameQuestState(this));
 

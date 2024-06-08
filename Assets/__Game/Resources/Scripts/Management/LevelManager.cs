@@ -64,7 +64,7 @@ namespace Assets.__Game.Resources.Scripts.Management
         _currentLevelIndex = Random.Range(0, _levelPrefabs.Length);
 
       SettingsManager.SaveSettings(_gameSettings);
-      LoadLevel(_currentLevelIndex);
+      //LoadLevel(_currentLevelIndex);
     }
 
     private void LoadSettings()
