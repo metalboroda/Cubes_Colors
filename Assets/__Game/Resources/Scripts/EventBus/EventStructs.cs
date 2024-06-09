@@ -22,6 +22,10 @@ namespace __Game.Resources.Scripts.EventBus
     public struct VariantsAssignedEvent : IEvent { }
     public struct CorrectAnswerEvent : IEvent { }
     public struct IncorrectCancelEvent : IEvent { }
+    public struct QuestTextEvent : IEvent
+    {
+      public string QuestText;
+    }
     #endregion
 
     #region Game

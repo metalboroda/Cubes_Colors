@@ -15,6 +15,8 @@ namespace Assets.__Game.Resources.Scripts._GameStuff
     [SerializeField] private bool _tutorial;
     [Space]
     [SerializeField] private Material[] _tutorialMaterials;
+    [Header("Text")]
+    [SerializeField] private string _questText;
     [Header("Stupor")]
     [SerializeField] private float _stuporTimeoutSeconds = 10;
 
@@ -74,6 +76,9 @@ namespace Assets.__Game.Resources.Scripts._GameStuff
 
         slotPosition.y += slotHeight;
       }
+
+      EventBus<EventStructs.VariantsAssignedEvent>.Raise(new EventStructs.VariantsAssignedEvent());
+      EventBus<EventStructs.QuestTextEvent>.Raise(new EventStructs.QuestTextEvent { QuestText = _questText });
     }
 
     public void ActivateNextSlot()

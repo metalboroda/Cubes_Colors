@@ -32,6 +32,11 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3410850402961896014, guid: a454cc821da5e1b419971d0230763865, type: 3}
+      propertyPath: _questText
+      value: "\u0421\u0438\u043D\u0456\u0439, \u0427\u0435\u0440\u0432\u043E\u043D\u0438\u0439,
+        \u0417\u0435\u043B\u0435\u043D\u0438\u0439"
+      objectReference: {fileID: 0}
+    - target: {fileID: 3410850402961896014, guid: a454cc821da5e1b419971d0230763865, type: 3}
       propertyPath: _tutorialMaterials.Array.data[1]
       value: 
       objectReference: {fileID: 2100000, guid: 8ad1f9bea9348d045bcabfc6d6d1c675, type: 2}
@@ -229,16 +234,20 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9124004346981231718, guid: a454cc821da5e1b419971d0230763865, type: 3}
       propertyPath: _questClips.Array.size
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 9124004346981231718, guid: a454cc821da5e1b419971d0230763865, type: 3}
-      propertyPath: _questClips.Array.data[1]
+      propertyPath: _questClips.Array.data[0]
       value: 
       objectReference: {fileID: 8300000, guid: 0fee26bd6996368498406a85b469c777, type: 3}
     - target: {fileID: 9124004346981231718, guid: a454cc821da5e1b419971d0230763865, type: 3}
-      propertyPath: _questClips.Array.data[2]
+      propertyPath: _questClips.Array.data[1]
       value: 
       objectReference: {fileID: 8300000, guid: 7f20b08330225a84e829d7e8fb0b7156, type: 3}
+    - target: {fileID: 9124004346981231718, guid: a454cc821da5e1b419971d0230763865, type: 3}
+      propertyPath: _questClips.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: b17dd13b4fde8fd4f8e614846ea70515, type: 3}
     - target: {fileID: 9124004346981231718, guid: a454cc821da5e1b419971d0230763865, type: 3}
       propertyPath: _questClips.Array.data[3]
       value: 

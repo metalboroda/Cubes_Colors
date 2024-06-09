@@ -9,6 +9,7 @@ namespace Assets.__Game.Resources.Scripts.LevelItem
   public class LevelNarrator : MonoBehaviour
   {
     [Header("Announcer")]
+    [SerializeField] private AudioClip _questStartClip;
     [SerializeField] private AudioClip[] _questClips;
     [Space]
     [SerializeField] private float _delayBetweenClips = 0.25f;
@@ -21,6 +22,7 @@ namespace Assets.__Game.Resources.Scripts.LevelItem
     private AudioTool _audioTool;
     private EventBinding<EventStructs.StateChanged> _stateEvent;
     private EventBinding<EventStructs.StuporEvent> _stuporEvent;
+    private EventBinding<EventStructs.UiButtonEvent> _uiButtonEvent;
 
     private void Awake()
     {
@@ -32,17 +34,19 @@ namespace Assets.__Game.Resources.Scripts.LevelItem
     {
       _stateEvent = new EventBinding<EventStructs.StateChanged>(PlayScreenSound);
       _stuporEvent = new EventBinding<EventStructs.StuporEvent>(PlayStuporSound);
+      _uiButtonEvent = new EventBinding<EventStructs.UiButtonEvent>(PlayQuestClipsSequentially);
     }
 
     private void OnDisable()
     {
       _stateEvent.Remove(PlayScreenSound);
       _stuporEvent.Remove(PlayStuporSound);
+      _uiButtonEvent.Remove(PlayQuestClipsSequentially);
     }
 
     private void Start()
     {
-      PlayQuestClipsSequentially();
+      _audioSource.PlayOneShot(_questStartClip);
     }
 
     private void PlayScreenSound(EventStructs.StateChanged state)
@@ -66,14 +70,15 @@ namespace Assets.__Game.Resources.Scripts.LevelItem
       _audioSource.PlayOneShot(_audioTool.GetRandomCLip(_stuporAnnouncerClips));
     }
 
-    public void PlayQuestClipsSequentially()
+    public void PlayQuestClipsSequentially(EventStructs.UiButtonEvent uiButtonEvent)
     {
-      StartCoroutine(DoPlayClipsSequentially(_questClips));
+      if (uiButtonEvent.UiEnums == __Game.Scripts.Enums.UiEnums.QuestPlayButton)
+        StartCoroutine(DoPlayClipsSequentially(_questClips));
     }
 
     private IEnumerator DoPlayClipsSequentially(AudioClip[] clips)
     {
-      yield return new WaitForSecondsRealtime(0.5f);
+      yield return new WaitForSecondsRealtime(0.1f);
 
       foreach (var clip in clips)
       {

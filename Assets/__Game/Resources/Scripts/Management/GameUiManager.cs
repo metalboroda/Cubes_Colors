@@ -72,6 +72,7 @@ namespace Assets.__Game.Resources.Scripts.Management
     private EventBinding<EventStructs.VariantsAssignedEvent> _variantsAssignedEvent;
     private EventBinding<EventStructs.TimerEvent> _timerEvent;
     private EventBinding<EventStructs.LastLevelEvent> _lastLevelEvent;
+    private EventBinding<EventStructs.QuestTextEvent> _questTextEvent;
 
     private void Awake()
     {
@@ -88,6 +89,7 @@ namespace Assets.__Game.Resources.Scripts.Management
       _variantsAssignedEvent = new EventBinding<EventStructs.VariantsAssignedEvent>(DisplayLevelCounter);
       _timerEvent = new EventBinding<EventStructs.TimerEvent>(DisplayTimer);
       _lastLevelEvent = new EventBinding<EventStructs.LastLevelEvent>(OnLastLevel);
+      _questTextEvent = new EventBinding<EventStructs.QuestTextEvent>(DisplayCorrectNumbersText);
     }
 
     private void OnDisable()
@@ -97,6 +99,7 @@ namespace Assets.__Game.Resources.Scripts.Management
       _variantsAssignedEvent.Remove(DisplayLevelCounter);
       _timerEvent.Remove(DisplayTimer);
       _lastLevelEvent.Remove(OnLastLevel);
+      _questTextEvent.Remove(DisplayCorrectNumbersText);
     }
 
     private void Start()
@@ -211,6 +214,12 @@ namespace Assets.__Game.Resources.Scripts.Management
         _pauseLevelCounterText.text = $"НАВЧАЛЬНИЙ РІВЕНЬ";
       else
         _pauseLevelCounterText.text = $"РІВЕНЬ {_gameSettings.OverallLevelIndex}";
+    }
+
+    private void DisplayCorrectNumbersText(EventStructs.QuestTextEvent questTextEvent)
+    {
+      _questCorrectNumbersTxt.text = questTextEvent.QuestText;
+      _pauseCorrectNumbersTxt.text = questTextEvent.QuestText;
     }
 
     private void SwitchCanvasesDependsOnState(EventStructs.StateChanged state)

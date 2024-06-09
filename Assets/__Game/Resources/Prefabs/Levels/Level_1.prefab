@@ -24,6 +24,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 4e4ecdd337254bf44bfe475dd36e6a0a, type: 3}
     - target: {fileID: 3410850402961896014, guid: a454cc821da5e1b419971d0230763865, type: 3}
+      propertyPath: _questText
+      value: "\u0416\u043E\u0432\u0442\u0438\u0439, \u0417\u0435\u043B\u0435\u043D\u0438\u0439,
+        \u041E\u0440\u0430\u043D\u0436\u0435\u0432\u0438\u0439"
+      objectReference: {fileID: 0}
+    - target: {fileID: 3410850402961896014, guid: a454cc821da5e1b419971d0230763865, type: 3}
       propertyPath: _cubeSlotItems.Array.size
       value: 3
       objectReference: {fileID: 0}
@@ -281,16 +286,20 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9124004346981231718, guid: a454cc821da5e1b419971d0230763865, type: 3}
       propertyPath: _questClips.Array.size
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 9124004346981231718, guid: a454cc821da5e1b419971d0230763865, type: 3}
-      propertyPath: _questClips.Array.data[1]
+      propertyPath: _questClips.Array.data[0]
       value: 
       objectReference: {fileID: 8300000, guid: 098322a495ea4ec41be1948ca609cbf4, type: 3}
     - target: {fileID: 9124004346981231718, guid: a454cc821da5e1b419971d0230763865, type: 3}
-      propertyPath: _questClips.Array.data[2]
+      propertyPath: _questClips.Array.data[1]
       value: 
       objectReference: {fileID: 8300000, guid: b17dd13b4fde8fd4f8e614846ea70515, type: 3}
+    - target: {fileID: 9124004346981231718, guid: a454cc821da5e1b419971d0230763865, type: 3}
+      propertyPath: _questClips.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: 5be32fbf098fad9408132e22b5fc2d0d, type: 3}
     - target: {fileID: 9124004346981231718, guid: a454cc821da5e1b419971d0230763865, type: 3}
       propertyPath: _questClips.Array.data[3]
       value: 
